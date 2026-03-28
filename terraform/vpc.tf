@@ -14,7 +14,7 @@ resource "yandex_vpc_subnet" "divanchik_a" {
 resource "yandex_vpc_subnet" "divanchik_b" {
   network_id     = yandex_vpc_network.divanchik.id
   name           = "divanchik-b"
-  zone           = "ru-central1-a"
+  zone           = "ru-central1-b"
   v4_cidr_blocks = ["10.6.0.0/16"]
   description    = "Divanchik music zone-b k8s subnet"
 }
