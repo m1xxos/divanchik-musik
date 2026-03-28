@@ -35,6 +35,12 @@ resource "yandex_vpc_security_group" "divanchik_k8s_sg" {
     from_port      = 30000
     to_port        = 32767
   }
+  ingress {
+    protocol       = "TCP"
+    description    = "Правило для kubectl"
+    port           = "443"
+    v4_cidr_blocks = ["0.0.0.0/0"]
+  }
   egress {
     protocol       = "ANY"
     description    = "Правило разрешает весь исходящий трафик. Узлы могут связаться с Yandex Container Registry, Yandex Object Storage, Docker Hub и т. д."
