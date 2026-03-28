@@ -44,3 +44,105 @@ resource "yandex_kubernetes_cluster" "k8s_divanchik_cluster" {
     }
   }
 }
+
+resource "yandex_kubernetes_node_group" "divanchik_a_k8s_ng" {
+  name        = "divanchik-a-k8s-ng"
+  description = "Divanchik musik zone a ng"
+  cluster_id  = yandex_kubernetes_cluster.k8s_divanchik_cluster.id
+  version     = "1.33"
+  instance_template {
+    name        = "dm-{instance.short_id}-{instance_group.id}"
+    platform_id = "standard-v3"
+    resources {
+      cores         = 2
+      core_fraction = 50
+      memory        = 2
+    }
+    boot_disk {
+      size = 64
+      type = "network-ssd"
+    }
+    network_acceleration_type = "standard"
+    network_interface {
+      security_group_ids = [yandex_vpc_security_group.divanchik_k8s_sg.id]
+      subnet_ids         = [yandex_vpc_subnet.divanchik_a.id]
+      nat                = true
+    }
+    scheduling_policy {
+      preemptible = true
+    }
+  }
+  scale_policy {
+    fixed_scale {
+      size = 1
+    }
+  }
+  allocation_policy {
+    location {
+      zone = "ru-central1-a"
+    }
+  }
+  deploy_policy {
+    max_expansion   = 3
+    max_unavailable = 1
+  }
+  maintenance_policy {
+    auto_upgrade = true
+    auto_repair  = true
+    maintenance_window {
+      start_time = "22:00"
+      duration   = "5h"
+    }
+  }
+}
+
+resource "yandex_kubernetes_node_group" "divanchik_d_k8s_ng" {
+  name        = "divanchik-d-k8s-ng"
+  description = "Divanchik musik zone d ng"
+  cluster_id  = yandex_kubernetes_cluster.k8s_divanchik_cluster.id
+  version     = "1.33"
+  instance_template {
+    name        = "dm-{instance.short_id}-{instance_group.id}"
+    platform_id = "standard-v3"
+    resources {
+      cores         = 2
+      core_fraction = 50
+      memory        = 2
+    }
+    boot_disk {
+      size = 64
+      type = "network-ssd"
+    }
+    network_acceleration_type = "standard"
+    network_interface {
+      security_group_ids = [yandex_vpc_security_group.divanchik_k8s_sg.id]
+      subnet_ids         = [yandex_vpc_subnet.divanchik_d.id]
+      nat                = true
+    }
+    scheduling_policy {
+      preemptible = true
+    }
+  }
+  scale_policy {
+    fixed_scale {
+      size = 1
+    }
+  }
+  allocation_policy {
+    location {
+      zone = "ru-central1-d"
+    }
+  }
+  deploy_policy {
+    max_expansion   = 3
+    max_unavailable = 1
+  }
+  maintenance_policy {
+    auto_upgrade = true
+    auto_repair  = true
+    maintenance_window {
+      start_time = "22:00"
+      duration   = "5h"
+    }
+  }
+}
