@@ -1,6 +1,6 @@
 resource "yandex_iam_service_account" "divanchik_k8s_account" {
   name        = "divanchik-k8s-account"
-  description = "Service account for the Divanchick Music Kubernetes cluster"
+  description = "Service account for the Divanchik Music Kubernetes cluster"
 }
 
 resource "yandex_resourcemanager_folder_iam_member" "k8s_clusters_agent" {

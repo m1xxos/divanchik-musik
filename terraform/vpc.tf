@@ -8,7 +8,7 @@ resource "yandex_vpc_subnet" "divanchik_a" {
   name           = "divanchik-a"
   zone           = "ru-central1-a"
   v4_cidr_blocks = ["10.5.0.0/16"]
-  description    = "Divanchick music zone-a k8s subnet"
+  description    = "Divanchik music zone-a k8s subnet"
 }
 
 resource "yandex_vpc_subnet" "divanchik_b" {
@@ -16,7 +16,7 @@ resource "yandex_vpc_subnet" "divanchik_b" {
   name           = "divanchik-b"
   zone           = "ru-central1-a"
   v4_cidr_blocks = ["10.6.0.0/16"]
-  description    = "Divanchick music zone-b k8s subnet"
+  description    = "Divanchik music zone-b k8s subnet"
 }
 
 resource "yandex_vpc_subnet" "divanchik_d" {
@@ -24,5 +24,5 @@ resource "yandex_vpc_subnet" "divanchik_d" {
   name           = "divanchik-d"
   zone           = "ru-central1-d"
   v4_cidr_blocks = ["10.7.0.0/16"]
-  description    = "Divanchick music zone-d k8s subnet"
+  description    = "Divanchik music zone-d k8s subnet"
 }
