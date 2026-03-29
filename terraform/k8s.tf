@@ -64,7 +64,7 @@ resource "yandex_kubernetes_node_group" "divanchik_a_k8s_ng" {
     }
     network_acceleration_type = "standard"
     network_interface {
-      security_group_ids = [yandex_vpc_security_group.k8s-cluster-nodegroup-traffic.id, yandex_vpc_security_group.alb.id, yandex_vpc_security_group.nodegroup-backend.id, yandex_vpc_security_group.nodegroup-services-access.id]
+      security_group_ids = [yandex_vpc_security_group.k8s-cluster-nodegroup-traffic.id, yandex_vpc_security_group.alb.id, yandex_vpc_security_group.nodegroup-backend.id, yandex_vpc_security_group.nodegroup-services-access.id, yandex_vpc_security_group.nodegroup-traffic.id]
       subnet_ids         = [yandex_vpc_subnet.divanchik_a.id]
       nat                = true
     }
@@ -115,7 +115,7 @@ resource "yandex_kubernetes_node_group" "divanchik_d_k8s_ng" {
     }
     network_acceleration_type = "standard"
     network_interface {
-      security_group_ids = [yandex_vpc_security_group.k8s-cluster-nodegroup-traffic.id, yandex_vpc_security_group.alb.id, yandex_vpc_security_group.nodegroup-backend.id, yandex_vpc_security_group.nodegroup-services-access.id]
+      security_group_ids = [yandex_vpc_security_group.k8s-cluster-nodegroup-traffic.id, yandex_vpc_security_group.alb.id, yandex_vpc_security_group.nodegroup-backend.id, yandex_vpc_security_group.nodegroup-services-access.id, yandex_vpc_security_group.nodegroup-traffic.id]
       subnet_ids         = [yandex_vpc_subnet.divanchik_d.id]
       nat                = true
     }
