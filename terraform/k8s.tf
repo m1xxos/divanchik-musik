@@ -17,7 +17,7 @@ resource "yandex_kubernetes_cluster" "k8s_divanchik_cluster" {
       zone      = yandex_vpc_subnet.divanchik_d.zone
       subnet_id = yandex_vpc_subnet.divanchik_d.id
     }
-    security_group_ids = [yandex_vpc_security_group.divanchik_k8s_sg.id]
+    security_group_ids = [yandex_vpc_security_group.k8s-cluster-nodegroup-traffic.id, yandex_vpc_security_group.alb.id, yandex_vpc_security_group.k8s-cluster-traffic.id]
     maintenance_policy {
       auto_upgrade = true
       maintenance_window {
@@ -64,7 +64,7 @@ resource "yandex_kubernetes_node_group" "divanchik_a_k8s_ng" {
     }
     network_acceleration_type = "standard"
     network_interface {
-      security_group_ids = [yandex_vpc_security_group.divanchik_k8s_sg.id]
+      security_group_ids = [yandex_vpc_security_group.k8s-cluster-nodegroup-traffic.id, yandex_vpc_security_group.alb.id, yandex_vpc_security_group.nodegroup-backend.id, yandex_vpc_security_group.nodegroup-services-access.id]
       subnet_ids         = [yandex_vpc_subnet.divanchik_a.id]
       nat                = true
     }
@@ -115,7 +115,7 @@ resource "yandex_kubernetes_node_group" "divanchik_d_k8s_ng" {
     }
     network_acceleration_type = "standard"
     network_interface {
-      security_group_ids = [yandex_vpc_security_group.divanchik_k8s_sg.id]
+      security_group_ids = [yandex_vpc_security_group.k8s-cluster-nodegroup-traffic.id, yandex_vpc_security_group.alb.id, yandex_vpc_security_group.nodegroup-backend.id, yandex_vpc_security_group.nodegroup-services-access.id]
       subnet_ids         = [yandex_vpc_subnet.divanchik_d.id]
       nat                = true
     }
