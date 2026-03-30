@@ -56,7 +56,7 @@ resource "yandex_kubernetes_node_group" "divanchik_a_k8s_ng" {
     resources {
       cores         = 2
       core_fraction = 50
-      memory        = 2
+      memory        = 4
     }
     boot_disk {
       size = 64
@@ -107,7 +107,7 @@ resource "yandex_kubernetes_node_group" "divanchik_d_k8s_ng" {
     resources {
       cores         = 2
       core_fraction = 50
-      memory        = 2
+      memory        = 4
     }
     boot_disk {
       size = 64
