@@ -3,10 +3,12 @@ data "kubernetes_secret_v1" "argo-admin-pass" {
     namespace = "argocd"
     name      = "argocd-initial-admin-secret"
   }
+  depends_on = [helm_release.argocd]
 }
 
 resource "argocd_repository" "divanchik" {
-  repo = "https://github.com/m1xxos/divanchik-musik"
+  repo       = "https://github.com/m1xxos/divanchik-musik"
+  depends_on = [helm_release.argocd]
 }
 
 resource "argocd_application_set" "helm-apps" {
@@ -51,4 +53,5 @@ resource "argocd_application_set" "helm-apps" {
       }
     }
   }
+  depends_on = [helm_release.argocd]
 }
