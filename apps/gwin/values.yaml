@@ -1,0 +1,10 @@
+controller:
+  # YC Folder to create ALB resources in
+  folderId: "b1g15qd1j96vvr56j549"
+ycServiceAccount:
+  # Service account key authentication
+  # Set secret.value to use this method, or set secret.create=false to use pre-existing secret
+  secret:
+    create: false
+    name: gwin-sa-key
+    key: sa-key.json

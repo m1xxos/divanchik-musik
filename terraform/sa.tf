@@ -83,7 +83,3 @@ resource "yandex_resourcemanager_folder_iam_member" "logging_writer_gwin" {
   role      = "logging.writer"
   member    = "serviceAccount:${yandex_iam_service_account.gwin_k8s_account.id}"
 }
-
-resource "yandex_iam_service_account_key" "gwin_key" {
-  service_account_id = yandex_iam_service_account.gwin_k8s_account.id
-}

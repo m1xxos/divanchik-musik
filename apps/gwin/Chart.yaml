@@ -1,0 +1,8 @@
+apiVersion: v2
+name: gwin
+version: 0.1.0
+description: Yandex Cloud Gateway for Windows (wrapper)
+dependencies:
+- name: gwin-chart
+  version: "v1.0.10"
+  repository: "oci://cr.yandex/yc-marketplace/yandex-cloud/gwin"
