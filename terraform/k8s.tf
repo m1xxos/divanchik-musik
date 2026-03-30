@@ -59,7 +59,7 @@ resource "yandex_kubernetes_node_group" "divanchik_a_k8s_ng" {
       memory        = 4
     }
     boot_disk {
-      size = 64
+      size = 40
       type = "network-ssd"
     }
     network_acceleration_type = "standard"
@@ -110,7 +110,7 @@ resource "yandex_kubernetes_node_group" "divanchik_d_k8s_ng" {
       memory        = 4
     }
     boot_disk {
-      size = 64
+      size = 40
       type = "network-ssd"
     }
     network_acceleration_type = "standard"
