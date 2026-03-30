@@ -43,7 +43,8 @@ resource "argocd_application_set" "helm-apps" {
 
         sync_policy {
           sync_options = [
-            "CreateNamespace=true"
+            "CreateNamespace=true",
+            "ServerSideApply=true"
           ]
           automated {
             prune     = true
