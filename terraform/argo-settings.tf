@@ -38,6 +38,16 @@ resource "argocd_application_set" "helm-apps" {
           server    = "https://kubernetes.default.svc"
           namespace = "{{path.basename}}"
         }
+
+        sync_policy {
+          sync_options = [
+            "CreateNamespace=true"
+          ]
+          automated {
+            prune     = true
+            self_heal = true
+          }
+        }
       }
     }
   }
