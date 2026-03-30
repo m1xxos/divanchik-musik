@@ -74,7 +74,7 @@ resource "yandex_kubernetes_node_group" "divanchik_a_k8s_ng" {
   }
   scale_policy {
     fixed_scale {
-      size = 1
+      size = 2
     }
   }
   allocation_policy {
