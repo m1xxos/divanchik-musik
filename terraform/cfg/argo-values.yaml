@@ -1,3 +1,6 @@
+global:
+  domain: argo.divanchik.m1xxos.online
+
 redis-ha:
   enabled: true
 
@@ -8,6 +11,12 @@ server:
   autoscaling:
     enabled: true
     minReplicas: 2
+  httproute:
+    enabled: true
+    parentRefs:
+      - name: divanchik-gateway
+        namespace: gwin
+        sectionName: https
 
 repoServer:
   autoscaling:

@@ -1,0 +1,8 @@
+apiVersion: gwin.yandex.cloud/v1
+kind: YCCertificate
+metadata:
+  name: divanchik-certificate
+  namespace: gwin
+spec:
+  certificateRef:
+    certificateID: "fpqf9c3lg7k4rjiipkn1"

@@ -1,0 +1,30 @@
+apiVersion: gateway.networking.k8s.io/v1
+kind: Gateway
+metadata:
+  name: divanchik-gateway
+  namespace: gwin
+spec:
+  gatewayClassName: gwin-default
+  listeners:
+  - name: http
+    protocol: HTTP
+    port: 80
+    hostname: "*.divanchik.m1xxos.online"
+    allowedRoutes:
+      namespaces:
+        from: Same
+  - name: https
+    protocol: HTTPS
+    port: 443
+    hostname: "*.divanchik.m1xxos.online"
+    allowedRoutes:
+      namespaces:
+        from: Same
+    tls:
+      certificateRefs:
+      - group: gwin.yandex.cloud
+        kind: YCCertificate
+        name: divanchik-certificate
+  addresses:
+  - type: gwin.yandex.cloud/autoIPv4
+    value: auto
