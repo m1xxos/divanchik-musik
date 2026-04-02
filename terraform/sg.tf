@@ -58,6 +58,13 @@ resource "yandex_vpc_security_group" "k8s-cluster-nodegroup-traffic" {
   name        = "k8s-cluster-nodegroup-traffic"
   network_id  = local.network-id
   ingress {
+    description       = "Правило для трафика от Gateway ALB к бэкендам"
+    from_port         = 0
+    to_port           = 65535
+    protocol          = "TCP"
+    v4_cidr_blocks = ["0.0.0.0/0"]
+  }
+  ingress {
     description       = "Правило для сетевого балансировщика нагрузки"
     from_port         = 0
     to_port           = 65535
