@@ -3,6 +3,8 @@ kind: Gateway
 metadata:
   name: divanchik-gateway
   namespace: gwin
+  annotations:
+    gwin.yandex.cloud/securityGroups: enpkmup0tbg4ohp13lgn
 spec:
   gatewayClassName: gwin-default
   listeners:

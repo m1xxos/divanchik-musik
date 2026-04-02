@@ -1,6 +1,10 @@
 global:
   domain: argo.divanchik.m1xxos.online
 
+configs:
+  params:
+    server.insecure: true
+
 redis-ha:
   enabled: true
 

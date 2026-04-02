@@ -25,11 +25,15 @@ resource "yandex_vpc_security_group" "alb" {
     predefined_target = "loadbalancer_healthchecks"
   }
   egress {
-    description    = "Правило для отправки трафика на узлы, в том числе для проверок состояния"
-    from_port      = 0
-    to_port        = 65535
-    protocol       = "TCP"
-    v4_cidr_blocks = ["10.140.0.0/24"]
+    description = "Правило для отправки трафика на узлы, в том числе для проверок состояния"
+    from_port   = 0
+    to_port     = 65535
+    protocol    = "TCP"
+    v4_cidr_blocks = [
+      yandex_vpc_subnet.divanchik_a.v4_cidr_blocks[0],
+      yandex_vpc_subnet.divanchik_b.v4_cidr_blocks[0],
+      yandex_vpc_subnet.divanchik_d.v4_cidr_blocks[0]
+    ]
   }
 }
 
