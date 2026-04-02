@@ -8,7 +8,7 @@ resource "kubernetes_namespace_v1" "gwin" {
   }
 }
 
-resource "kubernetes_secret" "gwin_sa_key" {
+resource "kubernetes_secret_v1" "gwin_sa_key" {
   metadata {
     name      = "gwin-sa-key"
     namespace = "gwin"
