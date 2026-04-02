@@ -16,6 +16,10 @@ terraform {
       source  = "argoproj-labs/argocd"
       version = "7.15.1"
     }
+    cloudflare = {
+      source  = "cloudflare/cloudflare"
+      version = "~> 5"
+    }
   }
   backend "s3" {
     endpoint                    = "https://storage.yandexcloud.net"
@@ -49,3 +53,8 @@ provider "argocd" {
   username     = "admin"
   password     = data.kubernetes_secret_v1.argo-admin-pass.data["password"]
 }
+
+provider "cloudflare" {
+  api_token = var.cf_api_token
+}
+

@@ -9,6 +9,14 @@ provider "registry.terraform.io/argoproj-labs/argocd" {
   ]
 }
 
+provider "registry.terraform.io/cloudflare/cloudflare" {
+  version     = "5.18.0"
+  constraints = "~> 5.0"
+  hashes = [
+    "h1:2FKT5YVLuHLmv7BnFxDC3UtipD3hSSrb0iJ9Ei2C/ks=",
+  ]
+}
+
 provider "registry.terraform.io/hashicorp/helm" {
   version     = "3.1.1"
   constraints = "3.1.1"
