@@ -13,10 +13,11 @@ server:
     minReplicas: 2
   httproute:
     enabled: true
+    hostnames: [ "argo.divanchik.m1xxos.online" ]
     parentRefs:
-      - name: divanchik-gateway
-        namespace: gwin
-        sectionName: https
+    - name: divanchik-gateway
+      namespace: gwin
+      sectionName: https
 
 repoServer:
   autoscaling:
