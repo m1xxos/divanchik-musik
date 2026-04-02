@@ -12,14 +12,14 @@ spec:
     hostname: "*.divanchik.m1xxos.online"
     allowedRoutes:
       namespaces:
-        from: Same
+        from: All
   - name: https
     protocol: HTTPS
     port: 443
     hostname: "*.divanchik.m1xxos.online"
     allowedRoutes:
       namespaces:
-        from: Same
+        from: All
     tls:
       certificateRefs:
       - group: gwin.yandex.cloud
